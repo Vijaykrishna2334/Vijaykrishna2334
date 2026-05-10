@@ -71,29 +71,19 @@ vijay = {
 
 <div align="center">
 
-<img height="175em" src="https://github-readme-stats.vercel.app/api?username=Vijaykrishna2334&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&border_radius=12&hide_border=true&bg_color=0d1117&title_color=6366f1&icon_color=6366f1&text_color=c9d1d9"/>
-&nbsp;
-<img height="175em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vijaykrishna2334&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6366f1&text_color=c9d1d9&border_radius=12&langs_count=8"/>
+[![GitHub Streak](https://streak-stats.demolab.com?user=Vijaykrishna2334&theme=tokyonight&hide_border=true&background=0D1117&ring=6366F1&fire=818CF8&currStreakLabel=6366F1&sideLabels=c9d1d9&dates=c9d1d9&border_radius=12)](https://git.io/streak-stats)
 
 </div>
 
 <div align="center">
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=Vijaykrishna2334&theme=tokyonight&hide_border=true&background=0D1117&ring=6366F1&fire=818CF8&currStreakLabel=6366F1&sideLabels=c9d1d9&dates=c9d1d9&border_radius=12)](https://git.io/streak-stats)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Vijaykrishna2334&bg_color=0d1117&color=6366f1&line=6366f1&point=818cf8&area=true&hide_border=true&radius=12" width="100%"/>
 
 </div>
 
 ---
 
 ## 🚀 Featured Projects
-
-<div align="center">
-
-[![nextmile-services](https://github-readme-stats.vercel.app/api/pin/?username=Vijaykrishna2334&repo=nextmile-services&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6366f1&text_color=c9d1d9&icon_color=6366f1)](https://github.com/Vijaykrishna2334/nextmile-services)
-&nbsp;
-[![voice-assistant](https://github-readme-stats.vercel.app/api/pin/?username=Vijaykrishna2334&repo=voice-assistant&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=6366f1&text_color=c9d1d9&icon_color=6366f1)](https://github.com/Vijaykrishna2334/voice-assistant)
-
-</div>
 
 ### 🔥 What I've Built
 
