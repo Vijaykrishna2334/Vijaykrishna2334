@@ -15,23 +15,19 @@
 
 ## 🧠 About Me
 
-```python
-vijay = {
-    "name"     : "Pedhapati Vijay Krishna",
-    "role"     : "AI/ML Engineer → GenAI Specialist",
-    "location" : "East Godavari, AP 🇮🇳  (Remote-first)",
-    "currently": "Generative AI & Automation @ NextMile",
-    "focus"    : ["LLM Applications", "RAG Pipelines", "Agentic AI", "Multi-modal Systems"],
-    "wins"     : [
-        "🎨  500+ AI design renders  ·  92% client satisfaction",
-        "🎙️  Sub-2s voice bot  ·  95%+ resolution rate",
-        "⚡  80% manual ops eliminated via automation",
-        "💰  40% API cost cut via smart LLM routing",
-    ],
-    "open_to"  : ["Full-time AI/ML Roles", "Freelance GenAI Projects", "Remote Work"],
-    "contact"  : "vijaykrishna2334@gmail.com",
-}
-```
+👋 Hi! I'm **Vijay Krishna** — an AI/ML Engineer from **Andhra Pradesh, India** who transitioned from 5 years of infrastructure engineering into building full-stack AI systems.
+
+I specialize in **LLMs, RAG pipelines, Agentic AI, and Multi-modal systems** using Python, LangChain, and Gemini API.
+
+🏆 **Key Wins:**
+- 🎨 Built **500+ AI interior design renders** with 92% client satisfaction
+- 🎙️ Deployed a **voice bot with sub-2s latency** and 95%+ resolution rate
+- ⚡ Engineered automation that **eliminated 80% of manual operations**
+- 💰 Reduced API costs by **40% via smart LLM routing**
+
+🔭 **Currently:** Generative AI & Automation @ NextMile
+
+💼 **Open to:** Full-time AI/ML roles · Freelance GenAI projects · Remote worldwide
 
 ---
 
