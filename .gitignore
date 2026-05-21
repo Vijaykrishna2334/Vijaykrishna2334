@@ -1,0 +1,17 @@
+﻿# Python scripts (not needed for live site)
+*.py
+*.bak
+*.pyc
+__pycache__/
+
+# Dev temp files
+_frames/preview_*.jpg
+_frames/sharp/
+_frames/frames/
+
+# IDE
+.claude/
+.gemini/
+
+# Node
+node_modules/
