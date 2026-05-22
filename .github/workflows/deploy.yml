@@ -1,0 +1,75 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Compress frame images to fit GitHub Pages limits
+        run: |
+          pip install Pillow --quiet
+          python3 - <<'PYEOF'
+          import os
+          from PIL import Image
+
+          folder = "_frames/2k"
+          if not os.path.isdir(folder):
+              print("No _frames/2k folder found, skipping.")
+              exit(0)
+
+          count = 0
+          for fname in sorted(os.listdir(folder)):
+              if not fname.lower().endswith(".jpg"):
+                  continue
+              path = os.path.join(folder, fname)
+              try:
+                  img = Image.open(path)
+                  w, h = img.size
+                  # Resize to max 1280px wide — good quality, loads fast
+                  if w > 1280:
+                      ratio = 1280 / w
+                      img = img.resize((1280, int(h * ratio)), Image.LANCZOS)
+                  img.save(path, "JPEG", quality=75, optimize=True)
+                  count += 1
+              except Exception as e:
+                  print(f"  Skipping {fname}: {e}")
+
+          total_mb = sum(
+              os.path.getsize(os.path.join(folder, f))
+              for f in os.listdir(folder) if f.endswith(".jpg")
+          ) / 1024 / 1024
+          print(f"Compressed {count} frames. Total: {total_mb:.1f} MB")
+          PYEOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
