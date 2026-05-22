@@ -1,0 +1,71 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Compress frame images for GitHub Pages
+        run: |
+          pip install Pillow --quiet
+          python3 - <<'PYEOF'
+          import os
+          from PIL import Image
+
+          folder = "_frames/2k"
+          for fname in sorted(os.listdir(folder)):
+              if not fname.lower().endswith(".jpg"):
+                  continue
+              path = os.path.join(folder, fname)
+              try:
+                  img = Image.open(path)
+                  # Resize to max 1280px wide (keeps aspect ratio, 2x faster load)
+                  w, h = img.size
+                  if w > 1280:
+                      ratio = 1280 / w
+                      img = img.resize((1280, int(h * ratio)), Image.LANCZOS)
+                  # Save with quality 72 - good visual quality, ~4x smaller files
+                  img.save(path, "JPEG", quality=72, optimize=True)
+              except Exception as e:
+                  print(f"Skipping {fname}: {e}")
+          total = sum(
+              os.path.getsize(os.path.join(folder, f))
+              for f in os.listdir(folder)
+              if f.endswith(".jpg")
+          ) / 1024 / 1024
+          print(f"Compressed _frames/2k total: {total:.1f} MB")
+          PYEOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload portfolio artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
